@@ -1,0 +1,62 @@
+{
+  "name": "supabase-sidecar-embedding-engine",
+  "version": "1.0.0",
+  "description": "A zero-cost, autonomous document embedding system using Supabase's sidecar architecture with intelligent re-embedding autopilot",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "setup": "node src/scripts/setup-system.js",
+    "seed": "node src/scripts/seed-sample-data.js",
+    "status": "node src/scripts/check-system-status.js",
+    "monitor": "node src/scripts/monitor-autopilot.js",
+    "test:connection": "node src/scripts/test-connection.js",
+    "migrate": "supabase db push",
+    "functions:deploy": "supabase functions deploy",
+    "dev": "supabase start",
+    "logs": "supabase functions logs",
+    "reset": "supabase db reset",
+    "help": "node src/scripts/show-help.js"
+  },
+  "keywords": [
+    "supabase",
+    "embeddings",
+    "ai",
+    "vector",
+    "autonomous",
+    "autopilot",
+    "sidecar",
+    "zero-cost",
+    "pgvector",
+    "postgresql",
+    "edge-functions"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/supabase-sidecar-embedding-engine.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/supabase-sidecar-embedding-engine/issues"
+  },
+  "homepage": "https://github.com/yourusername/supabase-sidecar-embedding-engine#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.38.0",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "supabase": "^1.100.0"
+  },
+  "files": [
+    "src/",
+    "docs/",
+    "ENVIRONMENT.md",
+    "README.md",
+    "CONTRIBUTING.md"
+  ]
+}
+
+
