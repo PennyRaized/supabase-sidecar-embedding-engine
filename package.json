@@ -10,6 +10,7 @@
     "status": "node src/scripts/check-system-status.js",
     "monitor": "node src/scripts/monitor-autopilot.js",
     "test:connection": "node src/scripts/test-connection.js",
+    "smoke": "node src/scripts/run-example.js",
     "migrate": "supabase db push",
     "functions:deploy": "supabase functions deploy",
     "dev": "supabase start",

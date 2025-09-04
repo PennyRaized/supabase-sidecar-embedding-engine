@@ -327,6 +327,51 @@ Sometimes the best architecture is the one that uses what's already there, just 
 
 ---
 
-*This cost analysis is based on real-world production usage processing 100K+ company embeddings. Your mileage may vary based on specific requirements and usage patterns.*
+## ⚠️ **System Limitations & Constraints**
+
+*Honest assessment of what this architecture cannot do and its practical limitations.*
+
+### **Embedding Model Constraints**
+- **Word Limit**: ~4,000 words per document (gte-small model limitation)
+- **Language Support**: Primarily English (gte-small limitation)
+- **Vector Dimensions**: 384 dimensions (fixed, cannot be changed)
+- **Quality Trade-off**: 85%+ of OpenAI's accuracy, but not identical
+
+### **Supabase Platform Limits**
+- **Function Timeout**: 50 seconds maximum execution time
+- **Memory**: 150 MB per Edge Function instance
+- **Concurrent Executions**: Limited by your Supabase plan tier
+- **Database Connections**: Limited by your plan tier
+
+### **Processing Constraints**
+- **Batch Size**: Limited by Edge Function memory (150 MB)
+- **Queue Depth**: Limited by database storage
+- **Cron Frequency**: Minimum 1-minute intervals (pg_cron limitation)
+
+### **What Happens When You Hit Limits**
+- **Storage Limits**: Processing stops, errors logged
+- **Function Timeout**: Job marked as failed, retried automatically
+- **Memory Limits**: Large documents may fail processing
+- **Rate Limits**: Jobs queue up, processing slows
+
+---
+
+## 🚨 **Important Disclaimers**
+
+### **This is NOT a "Zero-Cost" Solution**
+- **Free tier limitations** apply to all Supabase services
+- **Production scale** will incur costs for storage and overages
+- **Embedding quality** may not match premium models
+- **Processing speed** is limited by Supabase's infrastructure
+
+### **This IS a "Low-Cost" Solution**
+- **No external API costs** for embedding generation
+- **No additional infrastructure** costs beyond Supabase
+- **Predictable pricing** based on Supabase's transparent structure
+- **Automatic scaling** within platform limits
+
+---
+
+*This cost analysis is based on real-world production usage processing 400K+ company embeddings. Your mileage may vary based on specific requirements and usage patterns.*
 
 
